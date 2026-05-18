@@ -177,7 +177,7 @@ check_timeshift_snapshot() {
     local today
     today=$(date +%Y-%m-%d)
 
-    if sudo timeshift --list | grep -q "$today"; then
+     if sudo timeshift --list | grep "$today" | grep -q "BigUpdateSnapshot"; then
 
         ok "Snapshot do dia encontrada."
 
