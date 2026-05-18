@@ -6,6 +6,10 @@
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="MIT License">
 </p>
 
+<p align="center">
+  <img src="./assets/demo.gif" alt="BigUpdate Demo">
+</p>
+
 O **BigUpdate Stack** é um script de automação em Bash desenvolvido para sistemas **BigLinux**, **Manjaro** e derivados Arch Linux que utilizam **BTRFS + Timeshift**.
 
 Ele automatiza todo o fluxo de manutenção do sistema:
