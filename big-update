@@ -243,7 +243,10 @@ update_system() {
 
     info "Atualizando sistema BigLinux..."
 
-    yay -Syu --noconfirm
+    yay -Su \
+        --noconfirm \
+        --answerclean None \
+        --answerdiff None
 
     ok "Sistema atualizado."
 }
