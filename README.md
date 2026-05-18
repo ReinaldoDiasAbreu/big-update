@@ -184,6 +184,27 @@ antes da sincronização dos repositórios.
 
 Embora útil em algumas situações, atualizar mirrors em toda execução normalmente é desnecessário e aumenta o tempo do processo de update. Na maioria dos casos, os mirrors já configurados continuam funcionando corretamente por longos períodos. Por esse motivo, no script deixei essa funcionalidade como opcional, permitindo atualizar os mirrors apenas quando necessário.
 
+
+Exemplos de mensagens de error onde atualizar os mirrors é uma solução pois o sistema passa a utilizar servidores mais atualizados e estáveis.:
+
+```text
+error: failed retrieving file
+error: database is not valid
+error: failed to synchronize all databases
+error: target not found
+error: signature is invalid
+error: corrupted database
+```
+
+Isso acontece porque os mirrors são réplicas distribuídas dos repositórios oficiais e nem sempre permanecem perfeitamente sincronizados entre si. Dependendo do estado do mirror selecionado, podem ocorrer situações como:
+
+- o banco de dados já foi atualizado, mas o pacote ainda não foi replicado
+- um mirror está temporariamente fora do ar
+- o servidor possui alta latência
+- arquivos foram parcialmente sincronizados
+- algum mirror ficou desatualizado em relação aos demais
+- houve falha de cache/CDN durante download
+
 ---
 
 ## 📄 Log
