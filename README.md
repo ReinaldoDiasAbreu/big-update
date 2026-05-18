@@ -43,6 +43,7 @@ Preguiça.
 Por isso fui montando esse script até ficar maduro o suficiente para compartilhar.
 
 ---
+
 ## ✨ Recursos Principais
 
 ### 🔒 Segurança Rigorosa (`Strict Mode`)
@@ -145,7 +146,7 @@ sudo pacman -S flatpak timeshift libnotify
 
 ## 📦 Instalação
 
-### 1. Clonar o repositório
+### 1. Clonar o repositório e entrar na pasta do projeto
 
 ```bash
 git clone https://github.com/ReinaldoDiasAbreu/big-update.git
@@ -154,19 +155,23 @@ cd big-update
 
 ---
 
-### 2. Permitir execução
+### 2. Instalação
 
 ```bash
-chmod +x big-update
+makepkg -si
 ```
 
 ---
 
 ### 3. Executar
 
+Após a conclusão da instalação, você pode iniciar o projeto de qualquer lugar do terminal rodando:
+
 ```bash
-./big-update
+big-update
 ```
+> [!NOTE]
+>  Após o término da instalação, você pode apagar com segurança a pasta clonada (`big-update`). No entanto, **recomenda-se mantê-la**. Dessa forma, quando houver novas atualizações, bastará entrar na mesma pasta, rodar um `git pull` para baixar as novidades e executar o `makepkg -si` novamente para atualizar.
 
 ---
 
