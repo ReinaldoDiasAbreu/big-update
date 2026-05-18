@@ -313,8 +313,29 @@ finish() {
 # ----------------------------------------------------------------------------
 # EXECUÇÃO
 # ----------------------------------------------------------------------------
+
+# Exibe a versão
 if [[ "${1:-}" == "--version" ]]; then
     echo "big-update v${VERSION}"
+    exit 0
+fi
+
+# Mostra o help do script
+if [[ "${1:-}" == "--help" ]]; then
+    cat <<EOF
+
+BigUpdate v${VERSION}
+Just a script for updating BigLinux based on Manjaro
+
+Uso:
+  big-update [opções]
+
+Opções:
+  --upmirrors    Atualiza lista de mirrors antes do update
+  --version      Mostra versão do programa
+  --help         Mostra esta ajuda
+
+EOF
     exit 0
 fi
 
