@@ -187,7 +187,7 @@ check_timeshift_snapshot() {
         if ask "Deseja criar uma snapshot pré-update agora?"; then
 
             sudo timeshift --create \
-                --comments "Pré-update automática" \
+                --comments "Pre-update automatica" \
                 --tags D
 
             ok "Snapshot criada com sucesso."
