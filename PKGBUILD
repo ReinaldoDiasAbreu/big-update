@@ -1,6 +1,6 @@
 pkgname=big-update
-pkgver=1.0.1
-pkgrel=3
+pkgver=1.0.2
+pkgrel=0
 pkgdesc="Update stack for BigLinux with Timeshift, AUR and Flatpak support"
 arch=('any')
 url="https://github.com/ReinaldoDiasAbreu/big-update"
