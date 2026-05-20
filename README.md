@@ -1,8 +1,4 @@
-# 🚀 BigUpdate Stack
-
-<p align="right">
-  🇧🇷 <a href="./README.pt-BR.md">Português Brasileiro</a>
-</p>
+# 🚀 BigUpdate
 
 <p align="center">
   <img src="https://img.shields.io/badge/OS-BigLinux%20%7C%20Arch%20%7C%20Manjaro-blue?style=for-the-badge&logo=linux" alt="Supported OS">
@@ -14,44 +10,43 @@
   <img src="./assets/demo.gif" alt="BigUpdate Demo">
 </p>
 
-BigUpdate Stack is a Bash automation script developed for **BigLinux**, **Manjaro**, and Arch Linux-based systems using **BTRFS + Timeshift**.
+**BigUpdate** is a Bash automation script developed for **BigLinux Plasma** systems using **BTRFS + Timeshift**.
 
 It automates the entire system maintenance workflow:
-
-* official package updates
-* AUR package updates
-* Flatpak updates
-* orphan package cleanup
-* snapshot verification
-* execution logging
+- official package updates
+- AUR package updates
+- Flatpak updates
+- orphan cleanup
+- snapshot verification
+- execution logging
 
 ---
 
 ## 💡 Why does this project exist?
 
-I've always enjoyed updating my systems directly from the terminal, especially in the Arch/BigLinux ecosystem. However, before every system upgrade, I found myself manually repeating almost the same maintenance ritual:
+I have always enjoyed performing updates directly through the terminal, especially within the Arch/Manjaro/BigLinux ecosystem. However, before updating the system, I ended up manually repeating practically the same ritual every time:
 
-* checking for available updates
-* verifying Timeshift snapshots
-* searching for orphan packages and removing them
-* updating official repositories
-* updating AUR packages
-* updating Flatpaks
-* cleaning unused dependencies
+- checking for updates
+- reviewing Timeshift snapshots
+- searching for orphan packages and removing them
+- updating official repositories
+- updating AUR packages
+- updating Flatpaks
+- cleaning unused dependencies
 
-After repeating this process for a long time, I decided to automate everything into a single command.
+After doing this repeatedly for a long time, I decided to automate the entire process into a single command.
 
 The real reason?
 
 Laziness.
 
-So I gradually improved this script until it became mature enough to share publicly.
+So I kept improving this script until it became mature enough to share.
 
 ---
 
 ## ✨ Main Features
 
-### 🔒 Strict Safety (`Strict Mode`)
+### 🔒 Strict Security (`Strict Mode`)
 
 Uses:
 
@@ -59,13 +54,13 @@ Uses:
 set -euo pipefail
 ```
 
-to immediately stop execution if any intermediate command fails, avoiding partial upgrades or inconsistent system states.
+to immediately stop execution if any intermediate command fails, preventing partial updates or inconsistent states.
 
 ---
 
-### 📝 Smart Logging
+### 📝 Log Redirection
 
-Automatically creates an execution log at:
+Automatically creates a simple execution log for the script at:
 
 ```bash
 ~/bigupdate.log
@@ -73,38 +68,38 @@ Automatically creates an execution log at:
 
 Recording:
 
-* pending updates
-* updated packages
-* execution timestamps
-* complete system output
+- list of pending updates
+- updated packages
+- execution timestamps
+- complete system output
 
-Useful for troubleshooting if something fails or closes unexpectedly.
+For future reference in case the script fails or closes unexpectedly.
 
 ---
 
 ### 📸 Timeshift + BTRFS Integration
 
-Since BigLinux uses the BTRFS filesystem by default together with Timeshift snapshots, the script automatically checks for snapshots created on the current day before updating the system and optionally creates a preventive snapshot.
+Since the default BigLinux setup uses the BTRFS filesystem and Timeshift for daily snapshots, I took advantage of this in the script to automatically verify snapshots from the current day before updating and offer automatic creation of a preventive snapshot.
 
-This allows BigLinux users to revert all system modifications by selecting a previous snapshot from the boot menu.
+This allows BigLinux users to revert all modifications by selecting the previous snapshot in the boot menu.
 
 ---
 
 ### 🧹 Orphan Package Management
 
-Detects and safely offers removal of orphan dependencies using:
+Detects and offers safe removal of orphan dependencies using:
 
 ```bash
 pacman -Qtdq
 ```
 
-Over time, I encountered several issues caused by orphan packages without maintenance or support, especially in the Arch/Manjaro ecosystem.
+Over time, I encountered several issues with orphan packages lacking maintenance or support that eventually interfered with system updates.
 
-Since these packages are usually no longer needed, I started removing them before updates to reduce the chance of conflicts, broken dependencies, or upgrade failures.
+Since these packages are **normally** no longer necessary, I started removing them before updates to reduce the chances of conflicts, broken dependencies, or failures during the upgrade process.
 
-For this reason, the script performs orphan verification before the system update and offers safe cleanup of detected orphan packages.
+For this reason, the script performs the check before updating the system and offers the option to clean the orphan packages found.
 
-Personally, I prefer not to remove orphan packages immediately after updates because some recently updated software may still indirectly depend on them. Since keeping them temporarily installed usually causes no issues, they remain in the system until the next execution of the script.
+Personally, after updates, I prefer not to remove orphans immediately (which could also be done after the update), since some software may still depend on them indirectly (a very remote possibility in my view, depending on your system usage). Since temporarily keeping these packages installed usually does not cause problems, they remain in the system until the next script execution, which will remove them before attempting another update.
 
 ---
 
@@ -112,36 +107,36 @@ Personally, I prefer not to remove orphan packages immediately after updates bec
 
 Updates:
 
-* pacman packages
-* yay/AUR packages
-* Flatpaks
+- pacman
+- yay/AUR
+- Flatpak
 
 ---
 
 ### 🧼 Flatpak Auto Cleanup
 
-Automatically removes unused Flatpak runtimes and dependencies after updates.
+Removes unused Flatpak runtimes and dependencies after the update.
 
 ---
 
 ### 🔔 Desktop Notifications
 
-Sends desktop notifications via `notify-send` when updates are installed, recommending a system reboot.
+Sends notifications via `notify-send` when updates are installed, recommending a system reboot.
 
 ---
 
-## 🛠️ System Requirements
+## 🛠️ Requirements
 
-The script automatically checks for required dependencies.
+The script includes automatic dependency verification.
 
-Make sure you have installed:
+Make sure you have:
 
-* `yay`
-* `flatpak`
-* `timeshift`
-* `libnotify`
+- `yay`
+- `flatpak`
+- `timeshift`
+- `libnotify`
 
-Recommended installation:
+Recommended installation (not required on BigLinux Plasma):
 
 ```bash
 sudo pacman -S flatpak timeshift libnotify
@@ -160,7 +155,7 @@ cd big-update
 
 ---
 
-### 2. Install
+### 2. Installation
 
 ```bash
 makepkg -si
@@ -170,14 +165,14 @@ makepkg -si
 
 ### 3. Run
 
-After installation is complete, you can launch the project from anywhere in the terminal by running:
+After the installation is complete, you can start the project from anywhere in the terminal by running:
 
 ```bash
 big-update
 ```
 
 > [!NOTE]
-> After installation finishes, you can safely remove the cloned `big-update` directory. However, keeping it is recommended. This way, whenever new updates are released, you only need to enter the same directory, run `git pull` to download the latest changes, and execute `makepkg -si` again to update the package.
+> After the installation is complete, you can safely delete the cloned folder (`big-update`). However, **it is recommended to keep it**. This way, when new updates are available, you only need to enter the same folder, run `git pull` to download the latest changes, and execute `makepkg -si` again to update.
 
 ---
 
@@ -189,17 +184,17 @@ The script includes optional support for automatically updating the mirror list 
 ./big-update --upmirrors
 ```
 
-This option executes:
+This option runs:
 
 ```bash
 sudo pacman-mirrors -f
 ```
 
-before synchronizing repositories.
+before synchronizing the repositories.
 
-Although useful in certain situations, updating mirrors on every execution is usually unnecessary and increases update time. In most cases, the currently configured mirrors continue working correctly for long periods. For this reason, this functionality is optional, allowing mirrors to be refreshed only when necessary.
+Although useful in some situations, updating mirrors on every execution is usually unnecessary and increases the update process time. In most cases, the configured mirrors continue working correctly for long periods. For this reason, I left this feature optional in the script, allowing mirror updates only when necessary.
 
-Examples of errors where updating mirrors may help because the system starts using more up-to-date and stable servers:
+Examples of error messages where updating mirrors is a solution because the system starts using more up-to-date and stable servers:
 
 ```text
 error: failed retrieving file
@@ -210,14 +205,14 @@ error: signature is invalid
 error: corrupted database
 ```
 
-This happens because mirrors are distributed replicas of official repositories and are not always perfectly synchronized with each other. Depending on the mirror status, situations such as the following may occur:
+This happens because mirrors are distributed replicas of the official repositories and do not always remain perfectly synchronized with each other. Depending on the state of the selected mirror, situations such as the following may occur:
 
-* the database has already been updated, but the package has not yet been replicated
-* a mirror is temporarily offline
-* the server has high latency
-* files were partially synchronized
-* a mirror became outdated compared to others
-* cache/CDN synchronization issues occurred during downloads
+- the database has already been updated, but the package has not yet been replicated
+- a mirror is temporarily offline
+- the server has high latency
+- files were partially synchronized
+- a mirror became outdated compared to the others
+- a cache/CDN failure occurred during download
 
 ---
 
@@ -229,7 +224,7 @@ The complete execution log is saved at:
 ~/bigupdate.log
 ```
 
-The file is automatically recreated on each execution to prevent excessive growth. It stores the script output along with additional information about updated packages and their versions.
+The file is automatically recreated on each execution to avoid excessive growth. It only stores the script output along with some additional information about the updated packages and their versions.
 
 ---
 
