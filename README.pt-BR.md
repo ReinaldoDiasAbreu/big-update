@@ -10,7 +10,7 @@
   <img src="./assets/demo.gif" alt="BigUpdate Demo">
 </p>
 
-O **BigUpdate Stack** é um script de automação em Bash desenvolvido para sistemas **BigLinux**, **Manjaro** e derivados Arch Linux que utilizam **BTRFS + Timeshift**.
+O **BigUpdate** é um script de automação em Bash desenvolvido para sistemas **BigLinux Plasma* que utiliza **BTRFS + Timeshift**.
 
 Ele automatiza todo o fluxo de manutenção do sistema:
 - atualização de pacotes oficiais
@@ -24,7 +24,7 @@ Ele automatiza todo o fluxo de manutenção do sistema:
 
 ## 💡 Por que este projeto existe?
 
-Sempre gostei de realizar atualizações diretamente pelo terminal, principalmente no ecossistema Arch/BigLinux. Porém, antes de atualizar o sistema, eu acabava repetindo manualmente praticamente o mesmo ritual:
+Sempre gostei de realizar atualizações diretamente pelo terminal, principalmente no ecossistema Arch/Manjaro/BigLinux. Porém, antes de atualizar o sistema, acabava repetindo manualmente praticamente o mesmo ritual:
 
 - verificar se existiam atualizações
 - conferir snapshots do Timeshift
@@ -58,9 +58,9 @@ para interromper imediatamente a execução caso qualquer comando intermediário
 
 ---
 
-### 📝 Redirecionamento Inteligente de Logs
+### 📝 Redirecionamento de Logs
 
-Cria automaticamente um log da execução do scritp em:
+Cria automaticamente um log simples da execução do scritp em:
 
 ```bash
 ~/bigupdate.log
@@ -68,7 +68,7 @@ Cria automaticamente um log da execução do scritp em:
 
 Registrando:
 
-- atualizações pendentes
+- lista das atualizações pendentes
 - pacotes atualizados
 - horários de execução
 - saída completa do sistema
@@ -79,9 +79,9 @@ Para eventual consulta caso falhe ou feche inesperadamente.
 
 ### 📸 Integração com Timeshift + BTRFS
 
-Como o BigLinux trabalha com sistema de arquivos BTRFS por padrão e utiliza do Timeshift para criação de snapshots diárias, aproveitei no script para verificar automaticamente snapshots do dia atual antes da atualização e oferece criação automática de snapshot preventivo. 
+Como o BigLinux padrão trabalha com sistema de arquivos BTRFS e utiliza do Timeshift para criação de snapshots diárias, aproveitei no script para verificar automaticamente snapshots do dia atual antes da atualização e oferece criação automática de snapshot preventivo. 
 
-Isso possibilita no BigLinux reverter todas as modificações do sistema escolhendo a snapshot anterior no menu de inicialização do sistema.
+Isso possibilita no BigLinux que você possa reverter todas as modificações escolhendo a snapshot anterior no menu de inicialização.
 
 ---
 
@@ -93,13 +93,13 @@ Detecta e oferece remoção segura de dependências órfãs utilizando:
 pacman -Qtdq
 ```
 
-Ao longo do tempo, tive diversos problemas com pacotes órfãos sem manutenção ou suporte que acabavam interferindo em atualizações do sistema, especialmente no ecossistema Arch/Manjaro.
+Ao longo do tempo, tive diversos problemas com pacotes órfãos sem manutenção ou suporte que acabavam interferindo em atualizações do sistema.
 
-Como esses pacotes normalmente não são mais necessários, passei a removê-los antes das atualizações para reduzir a chance de conflitos, dependências quebradas ou falhas durante o processo de upgrade.
+Como esses pacotes **normalmente** não são mais necessários, passei a removê-los antes das atualizações para reduzir a chance de conflitos, dependências quebradas ou falhas durante o processo de upgrade.
 
-Por esse motivo, o script realiza a verificação antes da atualização do sistema e oferece a opção de limpeza segura dos pacotes órfãos encontrados.
+Por esse motivo, o script realiza a verificação antes da atualização do sistema e oferece a opção de limpeza dos pacotes órfãos encontrados.
 
-Eu particularmente prefiro não remover órfãos imediatamente após as atualizações, já que algum software recém-atualizado ainda pode depender deles indiretamente. Como manter esses pacotes instalados temporariamente não costuma causar problemas, eles permanecem no sistema até a próxima execução do script.
+Eu particularmente, após atualizações, prefiro não remover órfãos imediatamente (o que também poderia ser feito após atualização), já que algum software ainda pode depender deles indiretamente (chance bem remota ao meu ver, dependendo do seu uso do sistema). Como manter esses pacotes instalados temporariamente não costuma causar problemas, eles permanecem no sistema até a próxima execução do script que fará a remoção antes de tentar atualizar novamente.
 
 ---
 
@@ -125,7 +125,7 @@ Envia notificações via `notify-send` quando atualizações forem instaladas, r
 
 ---
 
-## 🛠️ Requisitos do Sistema
+## 🛠️ Requisitos
 
 O script possui verificação automática de dependências.
 
@@ -136,7 +136,7 @@ Certifique-se de possuir:
 - `timeshift`
 - `libnotify`
 
-Instalação recomendada:
+Instalação recomendada (não necessária no Big Linux Plasma):
 
 ```bash
 sudo pacman -S flatpak timeshift libnotify
