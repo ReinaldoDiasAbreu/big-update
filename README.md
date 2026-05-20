@@ -10,7 +10,7 @@
   <img src="./assets/demo.gif" alt="BigUpdate Demo">
 </p>
 
-**BigUpdate** is a Bash automation script developed for **BigLinux Plasma** systems using **BTRFS + Timeshift**.
+**BigUpdate** is a Bash automation script developed for [**BigLinux Plasma**](https://biglinux.com.br/)  system using **BTRFS + Timeshift**.
 
 It automates the entire system maintenance workflow:
 - official package updates
