@@ -281,17 +281,21 @@ update_flatpaks() {
 
     info "Atualizando Flatpaks..."
 
-    flatpak update -y
-
-    ok "Flatpaks atualizados."
+    if flatpak update -y --noninteractive >> "$LOG" 2>&1; then
+        ok "Flatpaks atualizados."
+    else
+        warn "Falha durante atualização Flatpak."
+    fi
 
     echo
 
     info "Removendo Flatpaks não utilizados..."
 
-    flatpak uninstall --unused -y
-
-    ok "Flatpaks órfãos removidos."
+    if flatpak uninstall --unused -y >> "$LOG" 2>&1; then
+        ok "Flatpaks órfãos removidos."
+    else
+        warn "Falha durante limpeza Flatpak."
+    fi
 }
 
 # ----------------------------------------------------------------------------
