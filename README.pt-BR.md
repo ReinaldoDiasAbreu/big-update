@@ -1,4 +1,4 @@
-# 🚀 BigUpdate Stack
+# 🚀 BigUpdate
 
 <p align="center">
   <img src="https://img.shields.io/badge/OS-BigLinux%20%7C%20Arch%20%7C%20Manjaro-blue?style=for-the-badge&logo=linux" alt="OS Suportados">
