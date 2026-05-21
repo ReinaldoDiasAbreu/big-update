@@ -1,5 +1,9 @@
 # 🚀 BigUpdate
 
+<p align="right">
+  🇧🇷 <a href="./README.pt-BR.md">Português Brasileiro</a>
+</p>
+
 <p align="center">
   <img src="https://img.shields.io/badge/OS-BigLinux%20%7C%20Arch%20%7C%20Manjaro-blue?style=for-the-badge&logo=linux" alt="Supported OS">
   <img src="https://img.shields.io/badge/Shell-Bash%205+-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Bash">
